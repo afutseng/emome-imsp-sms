@@ -1,18 +1,14 @@
 <?php
 /**
  * PHP library for Emome IMSP SMS's HTTP API
- * 
- * $imsp = new Emome_IMSP_SMS("ACCOUNT", "PASSWORD");
- * $response = $imsp->submitSM(
- *   array("msg" => "MESSAGE HERE",
- *         "to_addr" => "MOBILE PHONE NUMBER HERE"
- * ));
- * var_dump($response);
- * 
- * @author Kun-Fu Tseng, http://www.stu.edu.tw
+ *
+ * @author Kun-Fu Tseng, Shu-Te University, http://www.stu.edu.tw
  * @license MIT License
  */
-class Emome_IMSP_SMS 
+
+namespace EmomeIMSP;
+
+class SMS 
 {
   protected $_host = "http://imsp.emome.net:8008/imsp/sms/servlet";
   protected $_parameters = array();
@@ -59,6 +55,7 @@ class Emome_IMSP_SMS
     $params["msg"] = $this->convertMessageByMessageType($params["msg"], $params["msg_type"]);
     $params["dest_port"] = $this->convertDestPortByMessageType($params["dest_port"], $params["msg_type"]);
     $params["to_addr"] = $this->convertToAddr($params["to_addr"]);
+
 
     $url = "{$this->_host}/SubmitSM";
     $response = $this->makeHttpRequest($url, "POST", $params);
