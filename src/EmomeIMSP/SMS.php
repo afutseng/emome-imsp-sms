@@ -129,7 +129,6 @@ class SMS implements ShortMessageProviderInterface
     // 0 or 1 => Big5
     if ($msg_type <= 1) {
       $msg = iconv("UTF-8", "Big5", $msg);
-      echo "$msg####";
     } 
     elseif ($msg_type == 2 || $msg_type == 3) {
       // 2 or 3 => UTF-16 and HEX
