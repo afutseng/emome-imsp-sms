@@ -1,8 +1,10 @@
 <?php
-Require __DIR__. "/src/EmomeIMSP/SMS.php";
 use EmomeIMSP\SMS;
 
-$imsp = new SMS("11582", "6158x");
+require __DIR__. "/src/EmomeIMSP/SMS.php";
+
+
+$imsp = new SMS("ACCOUNT", "PASSWORD");
 $response = $imsp->submitSM(
   array("msg"     => "MESSAGE HERE",
         "to_addr" => "MOBILE PHONE NUMBER HERE"

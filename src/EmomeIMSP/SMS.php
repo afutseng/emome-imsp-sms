@@ -8,7 +8,10 @@
 
 namespace EmomeIMSP;
 
-class SMS 
+require "ShortMessageProviderInterface.php";
+
+
+class SMS implements ShortMessageProviderInterface
 {
   protected $_host = "http://imsp.emome.net:8008/imsp/sms/servlet";
   protected $_parameters = array();
